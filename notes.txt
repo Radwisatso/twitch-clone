@@ -1,2 +1,18 @@
 Important react types:
 - ReactNode (children, etc)
+
+Server & Clent Components:
+- Server Components:
+    - backend behaviour
+    - database access
+    - server cache
+    - streaming
+    - partial rendering
+    - seo
+    - initial page load
+
+    - Client Components:
+        - frontend behaviour
+        - useEffect
+        - useState
+        - onClick
