@@ -16,3 +16,11 @@ Server & Clent Components:
         - useEffect
         - useState
         - onClick
+
+Authentication: Clerk
+
+Local Tunnel: ngrok
+    - running ngrok: ngrok http 3000 (run the server too)
+        or > ngrok http --domain=outgoing-sunbeam-close.ngrok-free.app 3000
+
+Database: MySql + Prisma
