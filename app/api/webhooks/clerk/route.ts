@@ -58,6 +58,7 @@ export async function POST(req: Request) {
     console.log('Webhook body:')
     console.log(JSON.parse(body))
 
+    // Create User
     if (eventType === "user.created") {
         await db.user.create({
             data: {
@@ -66,7 +67,40 @@ export async function POST(req: Request) {
                 imageUrl: payload.data.image_url,
             }
         })
-        console.log('Success created user')
+        console.log('Success create user')
+    }
+
+    // Update User
+    if (eventType === "user.updated") {
+        const currentUser = await db.user.findUnique({
+            where: {
+                externalUserId: payload.data.id
+            }
+        })
+
+        if (!currentUser) {
+            return new Response('User not found', { status: 404 })
+        }
+
+        await db.user.update({
+            where: {
+                externalUserId: currentUser.externalUserId
+            },
+            data: {
+                imageUrl: payload.data.image_url,
+                username: payload.data.username
+            }
+        })
+        console.log('Success update user')
+    }
+
+    // Delete user
+    if (eventType === "user.deleted") {
+        await db.user.delete({
+            where: {
+                externalUserId: payload.data.id
+            }
+        })
     }
 
     return new Response('', { status: 200 })
