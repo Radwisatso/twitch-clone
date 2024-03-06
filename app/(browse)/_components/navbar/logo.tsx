@@ -12,7 +12,7 @@ const font = Poppins({
 export function Logo() {
   return (
     <Link href="/">
-      <div className=" hidden lg:flex items-center gap-x-4 hover:opacity-75 transition">
+      <div className="hidden lg:flex items-center gap-x-4 hover:opacity-75 transition">
         <div className="bg-white rounded-full p-1">
           <Image
             src="/spooky.svg"
